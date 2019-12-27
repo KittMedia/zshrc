@@ -27,7 +27,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -71,6 +71,7 @@ ZSH_THEME="agnoster"
 plugins=(
 	git
 	zsh-syntax-highlighting
+	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -100,20 +101,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-autoload -Uz compinit
-compinit
-autoload bashcompinit
-bashcompinit
-source $HOME/.wp-cli/wp-completion.bash
-
 export PATH=/usr/local/bin:$PATH
 export COPYFILE_DISABLE=true
 export EDITOR=nano
 export PATH=$PATH:~/.composer/vendor/bin:/usr/local/sbin
 
 # aliases
-alias route='~/Development/scripts/local/Routing/route.sh'
 alias mysql='/Applications/MAMP/Library/bin/mysql'
 alias mysqlcheck='/Applications/MAMP/Library/bin/mysqlcheck'
 alias mysqldump='/Applications/MAMP/Library/bin/mysqldump'
@@ -121,8 +114,15 @@ alias mysql_upgrade='/Applications/MAMP/Library/bin/mysql_upgrade'
 
 alias git-res='git reset --soft HEAD~1'
 alias phpcs-test='phpcs -s --standard=ruleset.xml *'
-alias server-updates='~/dev/meta/scripts/local/Update/updates.sh'
-alias wp-updates='~/dev/meta/scripts/local/Update/wp-updates.sh'
+alias server-updates='$HOME/dev/meta/scripts/local/Update/updates.sh'
+alias wl-updates='$HOME/dev/meta/scripts/local/Update/wl-package-update.sh'
+alias wp-updates='$HOME/dev/meta/scripts/local/Update/wp-updates.sh'
+
+autoload -Uz compinit
+compinit
+autoload bashcompinit
+bashcompinit
+source $HOME/.wp-cli/wp-completion.bash
 
 # https://stackoverflow.com/a/12403798/3461955
 bindkey "^[^[[B" forward-word
